@@ -16,7 +16,7 @@ body {
 
 .logo {
   & > h1 {
-    background-image: url("background.webp");
+    background-image: url("assets/background.webp");
     font-size: 6rem;
     background-size: cover;
     background-clip: text;
