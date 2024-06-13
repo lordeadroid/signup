@@ -5,7 +5,87 @@
 }
 
 body {
+  height: 100vh;
   font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue";
+}
+
+.logo {
+  & > h1 {
+    background-image: url("background.webp");
+    font-size: 6rem;
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+.page {
+  padding: 5rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 6rem;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 30vw;
+  gap: 4rem;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-box {
+  all: unset;
+  font-size: 1.25rem;
+  padding-left: 1.5rem;
+  width: 24rem;
+  height: 4rem;
+  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25),
+    -10px -10px 10px whitesmoke;
+  border-radius: 5px;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0.75rem 0.75rem 0.75rem rgba(0, 0, 0, 0.5),
+      -10px -10px 10px whitesmoke;
+  }
+
+  &::placeholder {
+    font-style: italic;
+  }
+}
+
+.button {
+  all: unset;
+  font-weight: 600;
+  font-size: 1.25em;
+  width: 10rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25), -10px -10px 10px whitesmoke;
+
+  &:focus,
+  hover {
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5), -10px -10px 10px whitesmoke;
+  }
 }
