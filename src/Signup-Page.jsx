@@ -11,6 +11,7 @@ const SignupPage = ({ handleSubmit }) => {
             name="username"
             className="input-box"
             placeholder="username"
+            minLength={3}
             required
           />
           <input
@@ -25,6 +26,7 @@ const SignupPage = ({ handleSubmit }) => {
             name="password"
             className="input-box"
             placeholder="password"
+            minLength={3}
             required
           />
         </div>
