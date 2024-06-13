@@ -1,7 +1,9 @@
-const FORMDATA = {
-  username: "",
-  email: "",
-  password: "",
+const EMPTYSTRING = "";
+
+const INITIALFORMDATA = {
+  username: EMPTYSTRING,
+  email: EMPTYSTRING,
+  password: EMPTYSTRING,
 };
 
-export { FORMDATA };
+export { EMPTYSTRING, INITIALFORMDATA };

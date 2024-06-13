@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { FORMDATA } from "./constant";
+import { EMPTYSTRING, INITIALFORMDATA } from "./constant";
 import SignupPage from "./Signup-Page";
-import Homepage from "./Homepage";
+import HomePage from "./Homepage";
 
 const updateFormData = (setFormData, inputForm) => {
   const username = inputForm.username.value;
@@ -15,15 +15,11 @@ const updateFormData = (setFormData, inputForm) => {
 const verifySignUp = (signUpData) => {
   const { username, password } = signUpData;
 
-  if (username !== "" && password !== "") {
-    return true;
-  }
-
-  return false;
+  return username !== EMPTYSTRING && password !== EMPTYSTRING ? true : false;
 };
 
 const App = () => {
-  const [formData, setFormData] = useState(FORMDATA);
+  const [formData, setFormData] = useState(INITIALFORMDATA);
   const [signUp, setSignUp] = useState(false);
 
   const handleSubmit = (event) => {
@@ -36,7 +32,7 @@ const App = () => {
   }, [formData]);
 
   return signUp ? (
-    <Homepage setFormData={setFormData} />
+    <HomePage setFormData={setFormData} />
   ) : (
     <SignupPage handleSubmit={handleSubmit} />
   );

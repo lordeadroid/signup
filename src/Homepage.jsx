@@ -1,16 +1,18 @@
-import { FORMDATA } from "./constant";
+import { INITIALFORMDATA } from "./constant";
 
-const Homepage = ({ setFormData }) => {
+const HomePage = ({ setFormData }) => {
   const handleLogout = () => {
-    setFormData(FORMDATA);
+    setFormData(INITIALFORMDATA);
   };
 
   return (
     <div className="page">
-      <div onClick={handleLogout} className="logout-button">Logout</div>
+      <div onClick={handleLogout} className="logout-button">
+        Logout
+      </div>
       <h1>Signed Up Successfully</h1>
     </div>
   );
 };
 
-export default Homepage;
+export default HomePage;
