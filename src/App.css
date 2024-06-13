@@ -1,3 +1,8 @@
+:root {
+  --small-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25), -10px -10px 10px white;
+  --big-shadow: 20px 15px 15px rgba(0, 0, 0, 0.4), -15px -15px 15px white;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +13,7 @@ body {
   height: 100vh;
   font-size: 16px;
   display: flex;
+  background-color: whitesmoke;
   align-items: center;
   justify-content: center;
   font-family: system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
@@ -57,15 +63,14 @@ body {
   padding-left: 1.5rem;
   width: 24rem;
   height: 4rem;
-  box-shadow: 0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25),
-    -10px -10px 10px whitesmoke;
-  border-radius: 5px;
+  border-radius: 1rem;
+  box-shadow: var(--small-shadow);
 
   &:focus,
   &:hover {
     cursor: pointer;
-    box-shadow: 0.75rem 0.75rem 0.75rem rgba(0, 0, 0, 0.5),
-      -10px -10px 10px whitesmoke;
+    transition: ease-out 1s;
+    box-shadow: var(--big-shadow);
   }
 
   &::placeholder {
@@ -83,13 +88,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25), -10px -10px 10px whitesmoke;
+  border-radius: 2rem;
+  box-shadow: var(--small-shadow);
 
   &:focus,
   &:hover {
     cursor: pointer;
-    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5), -10px -10px 10px whitesmoke;
+    transform: scale(1.1);
+    transition: ease-out 0.5s;
+    box-shadow: var(--big-shadow);
   }
 }
 
