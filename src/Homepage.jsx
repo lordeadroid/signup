@@ -7,7 +7,7 @@ const Homepage = ({ setFormData }) => {
 
   return (
     <div className="page">
-      <div onClick={handleLogout}>Logout</div>
+      <div onClick={handleLogout} className="logout-button">Logout</div>
       <h1>Signed Up Successfully</h1>
     </div>
   );

@@ -72,7 +72,8 @@ body {
   }
 }
 
-.button {
+.button,
+.logout-button {
   all: unset;
   font-weight: 600;
   font-size: 1.25em;
@@ -88,4 +89,10 @@ body {
   hover {
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.5), -10px -10px 10px whitesmoke;
   }
+}
+
+.logout-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
