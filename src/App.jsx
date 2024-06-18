@@ -1,11 +1,9 @@
 import { MantineProvider } from "@mantine/core";
-import "@mantine/core/styles.css";
-
-import { useEffect, useState } from "react";
-import { EMPTYSTRING, INITIALFORMDATA } from "./constant";
 import SignupPage from "./Signup-Page";
 import HomePage from "./Homepage";
 import "./App.css";
+import { useEffect, useState } from "react";
+import { EMPTYSTRING, INITIALFORMDATA } from "./constant";
 
 const updateFormData = (setFormData, inputForm) => {
   const username = inputForm.username.value;
@@ -15,9 +13,14 @@ const updateFormData = (setFormData, inputForm) => {
   setFormData({ username, password, email });
 };
 
+const handleSubmit = (values) => {
+  values.preventDefault();
+  console.log(121);
+  console.log(values);
+};
+
 const verifySignUp = (signUpData) => {
   const { username, password } = signUpData;
-
   return username !== EMPTYSTRING && password !== EMPTYSTRING ? true : false;
 };
 
@@ -25,23 +28,12 @@ const App = () => {
   const [formData, setFormData] = useState(INITIALFORMDATA);
   const [signUp, setSignUp] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    updateFormData(setFormData, event.target);
-  };
-
   useEffect(() => {
     setSignUp(verifySignUp(formData));
   }, [formData]);
 
   return (
-    <MantineProvider>
-      {signUp ? (
-        <HomePage setFormData={setFormData} />
-      ) : (
-        <SignupPage handleSubmit={handleSubmit} />
-      )}
-    </MantineProvider>
+    <MantineProvider>{signUp ? <HomePage /> : <SignupPage />}</MantineProvider>
   );
 };
 

@@ -1,36 +1,42 @@
-const SignupPage = ({ handleSubmit }) => {
+import { Button, PasswordInput, TextInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
+import { INITIALFORMDATA } from "./constant";
+
+const SignupPage = () => {
+  const form = useForm({
+    mode: "uncontrolled",
+    initialValues: INITIALFORMDATA,
+  });
+
   return (
     <div className="page">
       <div className="logo">
         <h1>antstack</h1>
       </div>
-      <form className="form" onSubmit={handleSubmit}>
+      <form
+        onSubmit={form.onSubmit((values) => console.log(values))}
+        className="form"
+      >
         <div className="input-container">
-          <input
-            type="text"
-            name="username"
-            className="input-box"
+          <TextInput
             placeholder="username"
-            minLength={3}
-            required
-          />
-          <input
-            type="email"
-            name="email"
             className="input-box"
+            variant="unstyled"
+            size="xl"
+            key={form.key("username")}
+            {...form.getInputProps("username")}
+          />
+          <TextInput
             placeholder="email"
-            required
-          />
-          <input
-            type="password"
-            name="password"
             className="input-box"
-            placeholder="password"
-            minLength={3}
-            required
+            key={form.key("email")}
+            {...form.getInputProps("email")}
           />
+          <PasswordInput placeholder="password" className="input-box" />
         </div>
-        <input type="submit" value="Submit" className="button" />
+        <Button type="submit" className="button">
+          Submit
+        </Button>
       </form>
     </div>
   );
