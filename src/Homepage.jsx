@@ -1,8 +1,6 @@
-import { INITIALFORMDATA } from "./constant";
-
-const HomePage = ({ setFormData }) => {
+const HomePage = ({ clearForm }) => {
   const handleLogout = () => {
-    setFormData(INITIALFORMDATA);
+    clearForm();
   };
 
   return (

@@ -7,6 +7,7 @@ import SignupPage from "./Signup-Page";
 import HomePage from "./Homepage";
 
 const App = () => {
+  const [formData, setFormData] = useState(INITIALFORMDATA);
   const [signUp, setSignUp] = useState(false);
 
   const form = useForm({
@@ -20,13 +21,17 @@ const App = () => {
   };
 
   const handleSubmit = (values) => {
-    setSignUp(verifySignUp(values));
+    setFormData(values);
   };
+
+  useEffect(() => {
+    setSignUp(verifySignUp(formData));
+  }, [formData]);
 
   return (
     <MantineProvider>
       {signUp ? (
-        <HomePage />
+        <HomePage clearForm={form.reset} />
       ) : (
         <SignupPage form={form} handleSubmit={handleSubmit} />
       )}

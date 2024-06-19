@@ -6,7 +6,10 @@ const SignupPage = ({ form, handleSubmit }) => {
       <div className="logo">
         <h1>antstack</h1>
       </div>
-      <form onSubmit={form.onSubmit(handleSubmit)} className="form">
+      <form
+        onSubmit={form.onSubmit(handleSubmit)}
+        className="form"
+      >
         <div className="input-container">
           <TextInput
             placeholder="username"
