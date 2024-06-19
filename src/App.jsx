@@ -20,7 +20,10 @@ const App = () => {
 
   const logout = () => {
     setFormData(INITIALFORMDATA);
-    localStorage.setItem(LOCALSTORAGE.propName, INITIALFORMDATA);
+    localStorage.setItem(
+      LOCALSTORAGE.propName,
+      JSON.stringify(INITIALFORMDATA)
+    );
     form.reset();
   };
 
