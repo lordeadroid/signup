@@ -15,6 +15,11 @@ const App = () => {
     initialValues: INITIALFORMDATA,
   });
 
+  const logout = () => {
+    setFormData(INITIALFORMDATA);
+    form.reset();
+  };
+
   const verifySignUp = (signUpData) => {
     const { username, password } = signUpData;
     return username !== EMPTYSTRING && password !== EMPTYSTRING ? true : false;
@@ -31,7 +36,7 @@ const App = () => {
   return (
     <MantineProvider>
       {signUp ? (
-        <HomePage clearForm={form.reset} />
+        <HomePage logout={logout} />
       ) : (
         <SignupPage form={form} handleSubmit={handleSubmit} />
       )}
