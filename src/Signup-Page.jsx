@@ -1,15 +1,18 @@
-import { Button, PasswordInput, TextInput } from "@mantine/core";
+import { Button, Flex, PasswordInput, TextInput } from "@mantine/core";
 
 const SignupPage = ({ form, handleSubmit }) => {
   return (
-    <div className="page">
+    <Flex
+      justify={"center"}
+      align={"center"}
+      gap={12}
+      h={"100vh"}
+      direction={"column"}
+    >
       <div className="logo">
         <h1>antstack</h1>
       </div>
-      <form
-        onSubmit={form.onSubmit(handleSubmit)}
-        className="form"
-      >
+      <form onSubmit={form.onSubmit(handleSubmit)} className="form">
         <div className="input-container">
           <TextInput
             placeholder="username"
@@ -36,7 +39,7 @@ const SignupPage = ({ form, handleSubmit }) => {
           Submit
         </Button>
       </form>
-    </div>
+    </Flex>
   );
 };
 

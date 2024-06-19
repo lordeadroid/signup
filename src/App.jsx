@@ -37,6 +37,10 @@ const App = () => {
   };
 
   const handleSubmit = (values) => {
+    console.log(values);
+    // form.setValues(values);
+    console.log(form.getValues());
+
     localStorage.setItem(LOCALSTORAGE.propName, JSON.stringify(values));
     updateFormData();
   };
