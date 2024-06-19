@@ -1,9 +1,11 @@
-const EMPTYSTRING = "";
+export const EMPTYSTRING = "";
 
-const INITIALFORMDATA = {
+export const INITIALFORMDATA = {
   username: EMPTYSTRING,
   email: EMPTYSTRING,
   password: EMPTYSTRING,
 };
 
-export { EMPTYSTRING, INITIALFORMDATA };
+export const LOCALSTORAGE = {
+  propName: "formData",
+};
