@@ -6,9 +6,12 @@ import { EMPTYSTRING, INITIALFORMDATA } from "./constant";
 import SignupPage from "./Signup-Page";
 import HomePage from "./Homepage";
 
+const getFormData = () =>
+  JSON.parse(localStorage.getItem("formData")) || INITIALFORMDATA;
+
 const App = () => {
-  const [formData, setFormData] = useState(INITIALFORMDATA);
-  const [signUp, setSignUp] = useState(false);
+  const [formData, setFormData] = useState(getFormData());
+  const [isLoggedIn, setLoggedIn] = useState(false);
 
   const form = useForm({
     mode: "uncontrolled",
@@ -17,25 +20,31 @@ const App = () => {
 
   const logout = () => {
     setFormData(INITIALFORMDATA);
+    localStorage.removeItem("formData");
     form.reset();
   };
 
-  const verifySignUp = (signUpData) => {
-    const { username, password } = signUpData;
-    return username !== EMPTYSTRING && password !== EMPTYSTRING ? true : false;
+  const verifySignUp = () => {
+    const { username, password } = getFormData();
+    return username !== EMPTYSTRING && password !== EMPTYSTRING;
+  };
+
+  const updateFormData = () => {
+    setFormData(getFormData());
   };
 
   const handleSubmit = (values) => {
-    setFormData(values);
+    localStorage.setItem("formData", JSON.stringify(values));
+    updateFormData();
   };
 
   useEffect(() => {
-    setSignUp(verifySignUp(formData));
+    setLoggedIn(verifySignUp());
   }, [formData]);
 
   return (
     <MantineProvider>
-      {signUp ? (
+      {isLoggedIn ? (
         <HomePage logout={logout} />
       ) : (
         <SignupPage form={form} handleSubmit={handleSubmit} />
